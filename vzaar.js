@@ -23,4 +23,9 @@ $(function() {
     status.text('interaction: ' + interaction);
   }
 
+  setInterval(function() {
+    player.getTime(function(time) {
+      console.log(time);
+    })
+  }, 1000)
 })
