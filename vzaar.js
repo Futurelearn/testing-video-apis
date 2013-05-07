@@ -2,6 +2,7 @@ $(function() {
   var player = new vzPlayer("vzvd-1240536");
   var status = $('.status');
   var notes = $('.notes');
+  var videoPlaying = false;
 
   player.ready(function() {
     status.text('ready');
@@ -13,6 +14,11 @@ $(function() {
 
   function onPlayState(state) {
     status.text('play state: ' + state);
+    if (state == 'mediaStarted' || state == 'mediaPlaying') {
+      videoPlaying = true;
+    } else {
+      videoPlaying = false;
+    }
   }
 
   function onProgress(state) {
@@ -25,7 +31,9 @@ $(function() {
 
   setInterval(function() {
     player.getTime(function(time) {
-      displayNotes(time);
+      if (videoPlaying) {
+        displayNotes(time);
+      }
     })
   }, 1000)
 
