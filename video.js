@@ -19,6 +19,7 @@ $(function() {
     player.addEvent('pause', onPause);
     player.addEvent('finish', onFinish);
     player.addEvent('playProgress', onPlayProgress);
+    player.addEvent('seek', onPlayProgress);
   });
   
   // Call the API when a button is pressed
