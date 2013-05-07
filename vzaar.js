@@ -25,7 +25,17 @@ $(function() {
 
   setInterval(function() {
     player.getTime(function(time) {
-      console.log(time);
+      displayNotes(time);
     })
   }, 1000)
+
+  function displayNotes(time) {
+    if (time >= 2 && time <= 5) {
+      notes.text('Notes relevant to the video between seconds 2 and 5.');
+    } else if (time >= 10 && time <= 15) {
+      notes.text('Notes relevant to the video between seconds 10 and 15.');
+    } else {
+      notes.text('');
+    }
+  }
 })
